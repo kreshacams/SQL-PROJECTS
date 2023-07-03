@@ -3,16 +3,16 @@
 
 -- USE netflix_userbase; 
 
-/*CREATE TABLE customers(
+CREATE TABLE customers(
 	UID int primary key auto_increment,
     member_name varchar(8) not null,
     subscription_type varchar(8) not null,
     gender varchar(6),
     age varchar(2) not null,
     country varchar(16) not null
-    ); */
+    ); 
     
-    /* INSERT INTO customers (
+     INSERT INTO customers (
 			member_name,
             subscription_type,
             gender,
@@ -34,17 +34,17 @@
             ("Anton","Premium", "Male", "45", "Canada"),
             ("Jane","Standard", "Female", "48","United Kingdom"),
             ("Dan","Basic", "Male", "27", "Australia"),
-            ("Faith","Standard", "Female", "38", "Germany"); */
+            ("Faith","Standard", "Female", "38", "Germany"); 
             
-    /* CREATE TABLE subscriptions(
+    CREATE TABLE subscriptions(
 		UID int primary key auto_increment,
         monthly_revenue int not null,
 		join_date date not null,
 		last_payment_date date not null,
 		device varchar(11) not null,
-		plan_duration_month int not null);*/
+		plan_duration_month int not null);
         
-   /*INSERT INTO subscriptions (
+   INSERT INTO subscriptions (
             monthly_revenue,
             join_date,
             last_payment_date,
@@ -66,22 +66,22 @@
             (15, "2023-03-23", "2023-06-28", "Tablet",1),
             (12, "2021-11-30", "2023-06-27", "Laptop", 1),
             (10, "2022-08-01", "2023-06-26", "Smartphone", 1),
-            (12, "2023-05-09", "2023-06-28", "Smart TV", 1);*/
+            (12, "2023-05-09", "2023-06-28", "Smart TV", 1);
             
     -- SHOW ALL SUBSCRIBERS USING STANDARD SUBSCRIPTIONS USING DEVICES SMART PHONE AND SMART TV.
     
-    /* SELECT c.UID, MEMBER_NAME, SUBSCRIPTION_TYPE, DEVICE
+	SELECT c.UID, MEMBER_NAME, SUBSCRIPTION_TYPE, DEVICE
         FROM CUSTOMERS c 
 		JOIN SUBSCRIPTIONS s 
             on c.UID = s.UID
-		where subscription_type = "Standard" and device in("Smartphone","Smart TV"); */
+		where subscription_type = "Standard" and device in("Smartphone","Smart TV"); 
         
 	-- SHOW SUBSCRIBERS THAT ARE AGES 32 ABOVE WITH TABLET AND SMARTPHONE AS DEVICE ACCORING TO MEMBER'S NAME
     
    SELECT *
 		FROM CUSTOMERS c 
-        JOIN SUBSCRIPTIONS S
+        	JOIN SUBSCRIPTIONS S
 			ON c.UID = S.UID,
-		WHERE AGE >= 32 AND DEVICE IN("TABLET", "MARTPHONE"),
-        ORDER BY MEMBER_NAME;
+		WHERE AGE >= 32 AND DEVICE IN("TABLET", "MARTPHONE")
+        	ORDER BY MEMBER_NAME;
 	
